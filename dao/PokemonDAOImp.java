@@ -1,5 +1,6 @@
 package dao;
 
+import java.io.*;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
@@ -34,13 +35,50 @@ public class PokemonDAOImp implements PokemonDAO {
 
 	@Override
 	public void escribirPokemon(String ruta, String name, int life, int atack, int defense, int specialAttack, int specialdefense, int speed) {
+		try {
+			BufferedWriter bwPok = new BufferedWriter(new FileWriter(ruta,true));
+			Pokemon pok = new Pokemon(name,life,atack,defense,specialAttack,specialdefense,speed);
+			if (!pok.existe(ruta)){
+				bwPok.write(pok.toString()+"\n");
+			}else{
+				System.out.println(name+" ya existe.");
+			}
+			bwPok.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
 	}
 
 	@Override
-	public void imprimirPokemon(String ruta) {
+	public void imprimirPokemon (String ruta) {
 
+		try {
+			BufferedReader brPoke = new BufferedReader(new FileReader(ruta));
+			String linea;
+			String pokeS[];
+			while ((linea = brPoke.readLine()) != null) {
+				pokeS = linea.split(";");
+				Pokemon pok = new Pokemon(pokeS[0],Integer.parseInt(pokeS[1]),Integer.parseInt(pokeS[2]),Integer.parseInt(pokeS[3]),Integer.parseInt(pokeS[4]),Integer.parseInt(pokeS[5]),Integer.parseInt(pokeS[6]));
+				pok.toString();
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		/*System.out.println(
+				"nombre='" + nombre + '\'' +
+						", vida=" + vida +
+						", ataque=" + ataque +
+						", defensa=" + defensa +
+						", ataqueEspecial=" + ataqueEspecial +
+						", defensaEspecial=" + defensaEspecial +
+						", velosidad=" + velosidad
+		);*/
 	}
+
 
 	@Override
 	public void escribirPokemon(String ruta, Pokemon pokemon) {
