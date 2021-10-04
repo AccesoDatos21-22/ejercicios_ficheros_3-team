@@ -61,7 +61,5 @@ public class PokemonDAOImp implements PokemonDAO {
 	public void escribirFlotante(float numeroDecimal, String ruta) {
 
 	}
-	// elementos que tiene nuestro almac�n
-
 
 }
