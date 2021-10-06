@@ -60,7 +60,15 @@ public class PokemonDAOImp implements PokemonDAO {
 			while ((linea = brPoke.readLine()) != null) {
 				pokeS = linea.split(";");
 				Pokemon pok = new Pokemon(pokeS[0],Integer.parseInt(pokeS[1]),Integer.parseInt(pokeS[2]),Integer.parseInt(pokeS[3]),Integer.parseInt(pokeS[4]),Integer.parseInt(pokeS[5]),Integer.parseInt(pokeS[6]));
-				pok.toString();
+				System.out.println(
+						"nombre='" + pok.getNombre() + '\n' +
+								"\tvida=" + pok.getVida() + '\n' +
+								"\tataque=" + pok.getAtaque() + '\n' +
+								"\tdefensa=" + pok.getDefensa() + '\n' +
+								"\tataqueEspecial=" + pok.getAtaqueEspecial() + '\n' +
+								"\tdefensaEspecial=" + pok.getDefensaEspecial() + '\n' +
+								"\tvelosidad=" + pok.getVelosidad()
+				);
 			}
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -68,15 +76,6 @@ public class PokemonDAOImp implements PokemonDAO {
 			e.printStackTrace();
 		}
 
-		/*System.out.println(
-				"nombre='" + nombre + '\'' +
-						", vida=" + vida +
-						", ataque=" + ataque +
-						", defensa=" + defensa +
-						", ataqueEspecial=" + ataqueEspecial +
-						", defensaEspecial=" + defensaEspecial +
-						", velosidad=" + velosidad
-		);*/
 	}
 
 
