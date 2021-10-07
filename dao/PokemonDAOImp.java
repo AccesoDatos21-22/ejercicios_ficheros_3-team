@@ -79,7 +79,28 @@ public class PokemonDAOImp implements PokemonDAO {
 
 	@Override
 	public List<Pokemon> leerPokemon(String ruta, String nombre) {
-		return null;
+
+		List<Pokemon> list = new ArrayList<Pokemon>();
+		List<Pokemon> listC = new ArrayList<Pokemon>();
+		try {
+			ObjectInputStream ois = new ObjectInputStream(new FileInputStream(ruta));
+			Pokemon poki;
+			poki = (Pokemon)ois.readObject();
+			list.add((Pokemon)poki);
+			ois.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+
+		for(Pokemon pok:list) {
+			if (pok.getNombre().contains(nombre)) {
+				listC.add(pok);
+			}
+		}
+
+		return listC;
 	}
 
 	@Override
