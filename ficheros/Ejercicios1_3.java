@@ -79,24 +79,64 @@ public class Ejercicios1_3 implements InterfazEjercicios1_3 {
 	@Override
 	public void leerFrases(Path ruta) {
 		// TODO Auto-generated method stub
-		
+		try {
+			System.out.println(Files.readAllLines(ruta));
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
-
-
 
 	@Override
 	public void escribirFlotante(float numeroDecimal, String ruta) {
 		// TODO Auto-generated method stub
-		
+		try {
+			DataOutputStream fos = new DataOutputStream(new FileOutputStream(ruta));
+			fos.writeFloat(numeroDecimal);
+			fos.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
 	public List<Float> leerFlotante(String ruta) {
-		// TODO Auto-generated method stub
-		return null;
+
+		List<Float> lista = new ArrayList<Float>();
+		try {
+			DataInputStream di = new DataInputStream(new FileInputStream(ruta));
+			Float flo ;
+
+			while (di.available() > 0) {
+				lista.add(di.readFloat());
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		return lista;
 	}
 
-	
+	public void imprimirFlotante(String ruta) {
+
+		try {
+			DataInputStream di = new DataInputStream(new FileInputStream(ruta));
+			Float flo ;
+
+			while (di.available() > 0) {
+				System.out.println(di.readFloat());
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+	}
 	
 		
 		

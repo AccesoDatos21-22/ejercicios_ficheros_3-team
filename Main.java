@@ -14,13 +14,14 @@ public class Main {
 
 		Ejercicios1_3 ej = new Ejercicios1_3();
 		Scanner sc = new Scanner(System.in);
-		System.out.println("¿Cual es el nombre del fichero?");
-		Path pa = ej.getNombre(sc);
+		/*System.out.println("¿Cual es el nombre del fichero?");*/
+		/*Path pa = ej.getNombre(sc);*/
 
 		/*List<String> li = ej.getFrases(sc);*/
 
-		ej.escribefrases(pa);
-
+	/*	ej.leerFrases(pa);*/
+		/*System.out.println(ej.leerFlotante("pene.txt"));*/
+		ej.imprimirFlotante("pene.txt");
 		sc.close();
 	}
 
