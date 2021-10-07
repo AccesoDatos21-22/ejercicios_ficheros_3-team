@@ -17,9 +17,9 @@ public class Main {
 		System.out.println("¿Cual es el nombre del fichero?");
 		Path pa = ej.getNombre(sc);
 
-		List<String> li = ej.getFrases(sc);
+		/*List<String> li = ej.getFrases(sc);*/
 
-		ej.escribefrases(li,pa);
+		ej.escribefrases(pa);
 
 		sc.close();
 	}

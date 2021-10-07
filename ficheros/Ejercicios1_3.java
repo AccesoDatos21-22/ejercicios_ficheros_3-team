@@ -37,6 +37,11 @@ public class Ejercicios1_3 implements InterfazEjercicios1_3 {
 	}
 
 	@Override
+	public void escribefrases(List<String> cadenas, Path ruta) {
+
+	}
+
+	@Override
 	public Path getNombre(Scanner escaner) {
 		Path pa = null;
 		try {
@@ -52,16 +57,19 @@ public class Ejercicios1_3 implements InterfazEjercicios1_3 {
 
 		return pa;
 	}
-	
-	@Override
+
+
 	public void escribefrases(Path ruta) {
 
+		Scanner sc = new Scanner(System.in);
+		String frase;
 		try {
-
-
-
-			BufferedWriter bw= new BufferedWriter(new FileWriter(ruta.toString()));
-
+			BufferedWriter bw = new BufferedWriter(new FileWriter(ruta.toString(),true));
+			System.out.println("Mete las frases");
+			while (!(frase = sc.nextLine()).toLowerCase().equals("salir")) {
+				bw.write(frase+"\r\n");
+			}
+			bw.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
