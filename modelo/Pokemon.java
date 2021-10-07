@@ -3,6 +3,7 @@ package modelo;
 import java.beans.JavaBean;
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.Objects;
 
 public class Pokemon implements Serializable {
 
@@ -13,8 +14,8 @@ public class Pokemon implements Serializable {
     private int ataqueEspecial;
     private int defensaEspecial;
     private int velosidad;
-    @Serial
     private static final long serialVersionUID = 1L;
+
 
     public Pokemon() {}
 
@@ -85,6 +86,14 @@ public class Pokemon implements Serializable {
                         defensaEspecial + ';' +
                         velosidad
                 ;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Pokemon pokemon = (Pokemon) o;
+        return vida == pokemon.vida && ataque == pokemon.ataque && defensa == pokemon.defensa && ataqueEspecial == pokemon.ataqueEspecial && defensaEspecial == pokemon.defensaEspecial && velosidad == pokemon.velosidad && Objects.equals(nombre, pokemon.nombre);
     }
 
 }
