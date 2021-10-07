@@ -1,7 +1,6 @@
 package modelo;
 
 import java.beans.JavaBean;
-import java.io.Serial;
 import java.io.Serializable;
 import java.util.Objects;
 

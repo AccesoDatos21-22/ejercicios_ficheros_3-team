@@ -1,6 +1,7 @@
 package dao;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
@@ -60,7 +61,20 @@ public class PokemonDAOImp implements PokemonDAO {
 
 	@Override
 	public List<Pokemon> leerPokemon(String ruta) {
-		return null;
+		List<Pokemon> list = new ArrayList<Pokemon>();
+		try {
+			ObjectInputStream ois = new ObjectInputStream(new FileInputStream(ruta));
+			Pokemon poki;
+			poki = (Pokemon)ois.readObject();
+			list.add((Pokemon)poki);
+			ois.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+
+		return list;
 	}
 
 	@Override
