@@ -6,7 +6,13 @@
 
 package dao;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -59,7 +65,7 @@ public class AulaDAOImp implements AulaDAO{
 	 * @param valor a anadir al almacén
 	 */
 	public void add(Alumno alumno) {
-		
+		alumnos.add(alumno);
 	}
 
 	/**
@@ -86,6 +92,27 @@ public class AulaDAOImp implements AulaDAO{
 	 * @param ruta
 	 */
 	public void escribeAlumnos(Path ruta) {
+		String cosita;
+		try {
+			for(Alumno alu:alumnos) {
+				cosita = "Nombre: "+ alu.getNombre() +
+						"\tApellidos: "+alu.getApellidos()+
+						"\tFecha de naciemineto: "+alu.getAnoNacimiento()+
+						"\tDireccion: "+alu.getDireccion()+"\n";
+
+
+					Files.writeString(ruta, cosita, StandardOpenOption.APPEND);
+
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+
+
+
+
+
 
 	}
 
@@ -96,6 +123,12 @@ public class AulaDAOImp implements AulaDAO{
 	 */
 	public void leeAlumnos(Path ruta) {
 
+		try {
+			System.out.println(Files.readAllLines(ruta));
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
 	}
 
