@@ -1,6 +1,15 @@
 import dao.PokemonDAO;
 import dao.PokemonDAOImp;
 import modelo.Pokemon;
+import ficheros.Ejercicios1_3;
+
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardOpenOption;
+import java.util.List;
+import java.util.Scanner;
 
 public class Main {
 	
@@ -17,6 +26,10 @@ public class Main {
 
 		po.imprimirPokemon("cosita.csv");
 
+		ej.leerFrases(pa);
+		System.out.println(ej.leerFlotante("pene.txt"));
+		ej.imprimirFlotante("pene.txt");
+		sc.close();
 	}
 
 }
