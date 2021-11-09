@@ -16,5 +16,3 @@ Todos los ejercicios hechos, metidos en el main, muchas pruebas.
 
 
 > **ProTip:** Ejecutas el main y hace todos los ejercicios **con ejemplos**.
-
-
