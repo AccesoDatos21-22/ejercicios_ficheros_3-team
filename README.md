@@ -18,5 +18,3 @@ Todos los ejercicios hechos, metidos en el main, muchas pruebas.
 > **ProTip:** Ejecutas el main y hace todos los ejercicios **con ejemplos**.
 
 
-
-![](https://img.shields.io/github/issues/AccesoDatos21-22/ejercicios_ficheros_3-team) ![](https://img.shields.io/github/forks/AccesoDatos21-22/ejercicios_ficheros_3-team) ![](https://img.shields.io/github/issues/AccesoDatos21-22/ejercicios_ficheros_3-team) 
