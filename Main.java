@@ -32,12 +32,12 @@ public class Main {
 		//Pruebas escribir frases
 		Ejercicios1_3 ej = new Ejercicios1_3();
 		Scanner sc = new Scanner(System.in);
-		System.out.println("¿Cual es el nombre del fichero?");
-		Path pa = ej.getNombre(sc);
-		System.out.println("Frases (salir para salir)");
-		List<String> li = ej.getFrases(sc);
-		ej.escribefrases(li,pa);
-		ej.leerFrases(pa);
+//		System.out.println("¿Cual es el nombre del fichero?");
+//		Path pa = ej.getNombre(sc);
+//		System.out.println("Frases (salir para salir)");
+//		List<String> li = ej.getFrases(sc);
+//		ej.escribefrases(li,pa);
+//		ej.leerFrases(pa);
 
 		//Pruebas flotante
 		ej.escribirFlotante(50,"Flotante.txt");
