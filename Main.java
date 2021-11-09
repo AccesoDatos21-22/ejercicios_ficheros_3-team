@@ -2,6 +2,8 @@ import dao.PokemonDAO;
 import dao.PokemonDAOImp;
 import modelo.Pokemon;
 import ficheros.Ejercicios1_3;
+import dao.AulaDAOImp;
+import modelo.Alumno;
 
 import java.io.File;
 import java.io.IOException;
@@ -10,6 +12,7 @@ import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 import java.util.List;
 import java.util.Scanner;
+import java.nio.file.Paths;
 
 public class Main {
 	
@@ -28,30 +31,13 @@ public class Main {
 		//Pruebas ejercicio 2
 		po.imprimirPokemon("cosita.csv");
 
+		//Pruebas Aula
+		AulaDAOImp aula = new AulaDAOImp(2);
+		aula.add(new Alumno("Paco","Hernandez Paine",500,"Calle del Melon",69));
+		aula.add(new Alumno("Pedro","Hernandez Paine",500,"Calle del Melon",69));
 
-		//Pruebas escribir frases
-		Ejercicios1_3 ej = new Ejercicios1_3();
-		Scanner sc = new Scanner(System.in);
-//		System.out.println("¿Cual es el nombre del fichero?");
-//		Path pa = ej.getNombre(sc);
-//		System.out.println("Frases (salir para salir)");
-//		List<String> li = ej.getFrases(sc);
-//		ej.escribefrases(li,pa);
-//		ej.leerFrases(pa);
-
-		//Pruebas flotante
-		ej.escribirFlotante(50,"Flotante.txt");
-		ej.imprimirFlotante("Flotante.txt");
-		sc.close();
-
-		//Pruebas pokemones
-		Pokemon pokimon = new Pokemon();
-		PokemonDAOImp poli = new PokemonDAOImp();
-		poli.add(pokimon);
-		poli.escribirPokemon("ob.bin",pokimon);
-		List<Pokemon> list = poli.leerPokemon("ob.bin");
-		System.out.println(list);
-
+		aula.escribeAlumnos(Paths.get("Alum.txt"));
+		aula.leeAlumnos(Paths.get("Alum.txt"));
 	}
 
 }
