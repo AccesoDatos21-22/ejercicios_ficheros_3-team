@@ -28,6 +28,7 @@ public class Main {
 		//Pruebas ejercicio 2
 		po.imprimirPokemon("cosita.csv");
 
+
 		//Pruebas escribir frases
 		Ejercicios1_3 ej = new Ejercicios1_3();
 		Scanner sc = new Scanner(System.in);
@@ -42,6 +43,15 @@ public class Main {
 		ej.escribirFlotante(50,"Flotante.txt");
 		ej.imprimirFlotante("Flotante.txt");
 		sc.close();
+
+		//Pruebas pokemones
+		Pokemon pokimon = new Pokemon();
+		PokemonDAOImp poli = new PokemonDAOImp();
+		poli.add(pokimon);
+		poli.escribirPokemon("ob.bin",pokimon);
+		List<Pokemon> list = poli.leerPokemon("ob.bin");
+		System.out.println(list);
+
 	}
 
 }

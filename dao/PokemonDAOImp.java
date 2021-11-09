@@ -1,6 +1,8 @@
 package dao;
 
 import java.io.*;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +27,8 @@ public class PokemonDAOImp implements PokemonDAO {
 
 	@Override
 	public void add(Pokemon pokemon) {
-
+		pokemones = new ArrayList<Pokemon>();
+		pokemones.add(pokemon);
 	}
 
 	@Override
@@ -81,17 +84,60 @@ public class PokemonDAOImp implements PokemonDAO {
 
 	@Override
 	public void escribirPokemon(String ruta, Pokemon pokemon) {
+		try {
+			ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(ruta,true));
+			if (!pokemones.contains(pokemon)) {
+				oos.writeObject(pokemon);
+			}
+			oos.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
 	}
 
 	@Override
 	public List<Pokemon> leerPokemon(String ruta) {
-		return null;
+		List<Pokemon> list = new ArrayList<Pokemon>();
+		try {
+			ObjectInputStream ois = new ObjectInputStream(new FileInputStream(ruta));
+			Pokemon poki;
+			poki = (Pokemon)ois.readObject();
+			list.add((Pokemon)poki);
+			ois.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+
+		return list;
 	}
 
 	@Override
 	public List<Pokemon> leerPokemon(String ruta, String nombre) {
-		return null;
+
+		List<Pokemon> list = new ArrayList<Pokemon>();
+		List<Pokemon> listC = new ArrayList<Pokemon>();
+		try {
+			ObjectInputStream ois = new ObjectInputStream(new FileInputStream(ruta));
+			Pokemon poki;
+			poki = (Pokemon)ois.readObject();
+			list.add((Pokemon)poki);
+			ois.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+
+		for(Pokemon pok:list) {
+			if (pok.getNombre().contains(nombre)) {
+				listC.add(pok);
+			}
+		}
+
+		return listC;
 	}
 
 	@Override

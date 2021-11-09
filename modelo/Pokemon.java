@@ -16,6 +16,8 @@ public class Pokemon {
     private int defensaEspecial;
     private int velosidad;
 
+    public Pokemon() {}
+
     public Pokemon(String nombre, int vida, int ataque, int defensa, int ataqueEspecial, int defensaEspecial, int velosidad) {
         this.nombre = nombre;
         this.vida = vida;
