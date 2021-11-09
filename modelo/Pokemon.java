@@ -1,9 +1,12 @@
 package modelo;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Objects;
 
-public class Pokemon implements Serializable {
+public class Pokemon {
 
     private String nombre;
     private int vida;
@@ -12,8 +15,6 @@ public class Pokemon implements Serializable {
     private int ataqueEspecial;
     private int defensaEspecial;
     private int velosidad;
-    @Serial
-    private static final long serialVersionUID = 1L;
 
     public Pokemon() {}
 
