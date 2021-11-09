@@ -15,6 +15,7 @@ public class Main {
 	
 	public static void main(String[] args) {
 
+		//Pruebas ejercicio 1
 		PokemonDAOImp po = new PokemonDAOImp();
 		po.escribirPokemon("cosita.csv","aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",100,500,2,6,5,5);
 		po.escribirPokemon("cosita.csv","asdfdasfadffddf",100,500,2,6,5,5);
@@ -24,11 +25,22 @@ public class Main {
 		po.escribirPokemon("cosita.csv","fdsafffffffffffffff",100,500,2,6,5,5);
 		po.escribirPokemon("cosita.csv","micha",100,500,2,6,5,5);
 
+		//Pruebas ejercicio 2
 		po.imprimirPokemon("cosita.csv");
 
+		//Pruebas escribir frases
+		Ejercicios1_3 ej = new Ejercicios1_3();
+		Scanner sc = new Scanner(System.in);
+		System.out.println("¿Cual es el nombre del fichero?");
+		Path pa = ej.getNombre(sc);
+		System.out.println("Frases (salir para salir)");
+		List<String> li = ej.getFrases(sc);
+		ej.escribefrases(li,pa);
 		ej.leerFrases(pa);
-		System.out.println(ej.leerFlotante("pene.txt"));
-		ej.imprimirFlotante("pene.txt");
+
+		//Pruebas flotante
+		ej.escribirFlotante(50,"Flotante.txt");
+		ej.imprimirFlotante("Flotante.txt");
 		sc.close();
 	}
 

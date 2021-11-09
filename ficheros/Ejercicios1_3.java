@@ -5,10 +5,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-import java.util.Scanner;
+import java.util.*;
 
 import interfaces.InterfazEjercicios1_3;
 
@@ -38,6 +35,19 @@ public class Ejercicios1_3 implements InterfazEjercicios1_3 {
 
 	@Override
 	public void escribefrases(List<String> cadenas, Path ruta) {
+		Iterator<String> it = cadenas.iterator();
+		String frase;
+		try {
+			BufferedWriter bw = new BufferedWriter(new FileWriter(ruta.toString(),true));
+//			System.out.println("Mete las frases");
+
+			while (it.hasNext()) {
+				bw.write(it.next()+"\r\n");
+			}
+			bw.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
 	}
 
@@ -59,22 +69,6 @@ public class Ejercicios1_3 implements InterfazEjercicios1_3 {
 	}
 
 
-	public void escribefrases(Path ruta) {
-
-		Scanner sc = new Scanner(System.in);
-		String frase;
-		try {
-			BufferedWriter bw = new BufferedWriter(new FileWriter(ruta.toString(),true));
-			System.out.println("Mete las frases");
-			while (!(frase = sc.nextLine()).toLowerCase().equals("salir")) {
-				bw.write(frase+"\r\n");
-			}
-			bw.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
-	}
 
 	@Override
 	public void leerFrases(Path ruta) {
