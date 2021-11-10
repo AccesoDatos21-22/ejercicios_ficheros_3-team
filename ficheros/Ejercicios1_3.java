@@ -99,8 +99,9 @@ public class Ejercicios1_3 implements InterfazEjercicios1_3 {
 	public List<Float> leerFlotante(String ruta) {
 
 		List<Float> lista = new ArrayList<Float>();
+		DataInputStream di = null;
 		try {
-			DataInputStream di = new DataInputStream(new FileInputStream(ruta));
+			di = new DataInputStream(new FileInputStream(ruta));
 			Float flo ;
 
 			while (di.available() > 0) {
@@ -110,15 +111,21 @@ public class Ejercicios1_3 implements InterfazEjercicios1_3 {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				di.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 
 		return lista;
 	}
 
 	public void imprimirFlotante(String ruta) {
-
+		DataInputStream di = null;
 		try {
-			DataInputStream di = new DataInputStream(new FileInputStream(ruta));
+			di = new DataInputStream(new FileInputStream(ruta));
 			Float flo ;
 
 			while (di.available() > 0) {
@@ -128,6 +135,12 @@ public class Ejercicios1_3 implements InterfazEjercicios1_3 {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				di.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 
 	}
