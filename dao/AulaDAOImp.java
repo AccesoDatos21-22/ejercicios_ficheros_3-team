@@ -108,12 +108,6 @@ public class AulaDAOImp implements AulaDAO{
 			e.printStackTrace();
 		}
 
-
-
-
-
-
-
 	}
 
 	/**
